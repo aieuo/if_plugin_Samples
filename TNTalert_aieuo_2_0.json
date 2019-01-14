@@ -1,0 +1,34 @@
+{
+    "name": "TNTalert",
+    "author": "aieuo",
+    "details": "TNTを置こうとすると全員に警告を送り、インベントリからtntを削除します",
+    "ifs": [
+        {
+            "if": [
+                {
+                    "id": 8,
+                    "content": "{block_name}[ope:0]TNT"
+                }
+            ],
+            "match": [
+                {
+                    "id": 104,
+                    "content": " §c{player_name}がTNTを置こうとしました"
+                },
+                {
+                    "id": 130,
+                    "content": ""
+                },
+                {
+                    "id": 108,
+                    "content": "46:0:0"
+                }
+            ],
+            "else": [],
+            "type": 2,
+            "options": {
+                "eventname": "BlockPlaceEvent"
+            }
+        }
+    ]
+}

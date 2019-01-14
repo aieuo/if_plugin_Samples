@@ -1,0 +1,21 @@
+{
+    "name": "TouchBlockInfo",
+    "author": "aieuo",
+    "details": "触ったブロックの情報をtip欄に表示します",
+    "ifs": [
+        {
+            "if": [],
+            "match": [
+                {
+                    "id": 102,
+                    "content": "§a{block_name}  §b{block_ids} §e{block_pos}"
+                }
+            ],
+            "else": [],
+            "type": 2,
+            "options": {
+                "eventname": "PlayerInteractEvent"
+            }
+        }
+    ]
+}
