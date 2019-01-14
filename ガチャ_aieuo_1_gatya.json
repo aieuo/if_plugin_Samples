@@ -1,0 +1,64 @@
+{
+    "name": "ガチャ",
+    "author": "aieuo",
+    "details": "所持金を1000消費して25分の1でダイヤモンドがもらえるガチャを引けます(確率は編集で変えれます)",
+    "ifs": {
+        "gatya": {
+            "if": [
+                {
+                    "id": 0,
+                    "content": "1000"
+                }
+            ],
+            "match": [
+                {
+                    "id": 134,
+                    "content": "1000"
+                },
+                {
+                    "id": 135,
+                    "content": "onGatya"
+                }
+            ],
+            "else": [
+                {
+                    "id": 101,
+                    "content": "[§aガチャ§r] お金が足りません"
+                }
+            ],
+            "description": "ifPluginで追加したコマンドです",
+            "permission": "op",
+            "type": 1,
+            "options": {
+                "desc": "",
+                "perm": ""
+            }
+        },
+        "onGatya": {
+            "if": [
+                {
+                    "id": 12,
+                    "content": "1,25,1"
+                }
+            ],
+            "match": [
+                {
+                    "id": 101,
+                    "content": "[§aガチャ§r] 当たり!!"
+                },
+                {
+                    "id": 107,
+                    "content": "264:0:1"
+                }
+            ],
+            "else": [
+                {
+                    "id": 101,
+                    "content": "[§aガチャ§r] はずれ..."
+                }
+            ],
+            "type": 3,
+            "options": []
+        }
+    }
+}

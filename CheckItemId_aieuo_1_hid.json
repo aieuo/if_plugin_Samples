@@ -1,0 +1,24 @@
+{
+    "name": "CheckItemId",
+    "author": "aieuo",
+    "details": "手に持ってるアイテムのidをチャットに送ります",
+    "ifs": {
+        "hid": {
+            "if": [],
+            "match": [
+                {
+                    "id": 101,
+                    "content": "{hand_id}:{hand_damage}"
+                }
+            ],
+            "else": [],
+            "description": "手に持ってるアイテムのidを調べる",
+            "permission": "default",
+            "type": 1,
+            "options": {
+                "desc": "",
+                "perm": ""
+            }
+        }
+    }
+}

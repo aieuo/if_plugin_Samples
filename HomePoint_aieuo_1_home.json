@@ -1,0 +1,107 @@
+{
+    "name": "HomePoint",
+    "author": "aieuo",
+    "details": "ホームポイントを設定します",
+    "ifs": {
+        "home": {
+            "if": [],
+            "match": [
+                {
+                    "id": 101,
+                    "content": "Usage: <set | del | warp>"
+                }
+            ],
+            "else": [],
+            "description": "ホームポイントを設定します",
+            "permission": "default",
+            "type": 1,
+            "options": {
+                "desc": "",
+                "perm": ""
+            }
+        },
+        "home set": {
+            "if": [],
+            "match": [
+                {
+                    "id": 128,
+                    "content": "homepoint_{player_name};{player_pos}"
+                },
+                {
+                    "id": 101,
+                    "content": "設定しました"
+                }
+            ],
+            "else": [],
+            "description": "ホームポイント設定",
+            "permission": "default",
+            "type": 1,
+            "options": {
+                "desc": "",
+                "perm": ""
+            }
+        },
+        "home del": {
+            "if": [
+                {
+                    "id": 13,
+                    "content": "homepoint_{player_name}"
+                }
+            ],
+            "match": [
+                {
+                    "id": 136,
+                    "content": "homepoint_{player_name}"
+                },
+                {
+                    "id": 101,
+                    "content": "削除しました"
+                }
+            ],
+            "else": [
+                {
+                    "id": 101,
+                    "content": "まだ追加されていません"
+                }
+            ],
+            "description": "ホームポイント削除",
+            "permission": "default",
+            "type": 1,
+            "options": {
+                "desc": "",
+                "perm": ""
+            }
+        },
+        "home warp": {
+            "if": [
+                {
+                    "id": 13,
+                    "content": "homepoint_{player_name}"
+                }
+            ],
+            "match": [
+                {
+                    "id": 103,
+                    "content": "{homepoint_{player_name}}"
+                },
+                {
+                    "id": 101,
+                    "content": "ワープしました"
+                }
+            ],
+            "else": [
+                {
+                    "id": 101,
+                    "content": "まだ設定されていません"
+                }
+            ],
+            "description": "ホームポイントにワープする",
+            "permission": "default",
+            "type": 1,
+            "options": {
+                "desc": "",
+                "perm": ""
+            }
+        }
+    }
+}
