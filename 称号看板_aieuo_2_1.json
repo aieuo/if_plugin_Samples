@@ -1,0 +1,56 @@
+{
+    "name": "称号看板",
+    "author": "aieuo",
+    "details": "看板で称号を設定できるようにする",
+    "plugin_version": "3.4.4",
+    "ifs": [
+        {
+            "if": [
+                {
+                    "id": 8,
+                    "content": "{block_name}[ope:6]Sign"
+                },
+                {
+                    "id": 8,
+                    "content": "{sign_lines}[0][ope:0][Rank]"
+                }
+            ],
+            "match": [
+                {
+                    "id": 114,
+                    "content": "[{sign_lines}[1]§r] {player_name}"
+                },
+                {
+                    "id": 128,
+                    "content": "rank_{player_name};{sign_lines}[1]"
+                }
+            ],
+            "else": [],
+            "name": "称号看板",
+            "type": 2,
+            "options": {
+                "eventname": "PlayerInteractEvent"
+            }
+        },
+        {
+            "if": [
+                {
+                    "id": 13,
+                    "content": "rank_{player_name}"
+                }
+            ],
+            "match": [
+                {
+                    "id": 114,
+                    "content": "[{rank_{player_name}}§r] {player_name}"
+                }
+            ],
+            "else": [],
+            "name": "サーバーに参加したときに称号をセット",
+            "type": 2,
+            "options": {
+                "eventname": "PlayerJoinEvent"
+            }
+        }
+    ]
+}
