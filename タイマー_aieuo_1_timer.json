@@ -1,0 +1,135 @@
+{
+    "name": "タイマー",
+    "author": "aieuo",
+    "details": "/timer <秒数>でbossbarのタイマーを開始します",
+    "plugin_version": "3.6.1",
+    "ifs": {
+        "timer": {
+            "if": [
+                {
+                    "id": 8,
+                    "content": "{args}.length[ope:4]1"
+                }
+            ],
+            "match": [
+                {
+                    "id": 135,
+                    "content": "startTimer"
+                }
+            ],
+            "else": [
+                {
+                    "id": 101,
+                    "content": "使い方: /timer <秒数>"
+                }
+            ],
+            "description": "/timer <秒数>",
+            "permission": true,
+            "type": 1,
+            "options": {
+                "desc": "/timer <秒数>",
+                "perm": true
+            }
+        },
+        "startTimer": {
+            "if": [
+                {
+                    "id": 8,
+                    "content": "{args}[0][ope:4]1"
+                }
+            ],
+            "match": [
+                {
+                    "id": 128,
+                    "content": "countdown_{player_name};(num){args}[0]"
+                },
+                {
+                    "id": 155,
+                    "content": "タイマー  残り{countdown_{player_name}}秒[max]{args}[0][value]{countdown_{player_name}}[id]timer"
+                },
+                {
+                    "id": 144,
+                    "content": "1[name]countdown"
+                }
+            ],
+            "else": [
+                {
+                    "id": 156,
+                    "content": "timer"
+                },
+                {
+                    "id": 136,
+                    "content": "countdown_{player_name}"
+                },
+                {
+                    "id": 101,
+                    "content": "タイマーを終了しました"
+                }
+            ],
+            "type": 3,
+            "options": []
+        },
+        "countdown": {
+            "if": [
+                {
+                    "id": 13,
+                    "content": "countdown_{player_name}"
+                },
+                {
+                    "id": 8,
+                    "content": "{countdown_{player_name}}[ope:2]1"
+                },
+                {
+                    "id": 8,
+                    "content": "{args}[ope:7]§cUndefind variable:"
+                }
+            ],
+            "match": [
+                {
+                    "id": 127,
+                    "content": "{countdown_{player_name}}[ope:1]1;countdown_{player_name}"
+                },
+                {
+                    "id": 155,
+                    "content": "タイマー  残り{countdown_{player_name}}秒[max]{args}[0][value]{countdown_{player_name}}[id]timer"
+                },
+                {
+                    "id": 144,
+                    "content": "1[name]countdown"
+                }
+            ],
+            "else": [
+                {
+                    "id": 155,
+                    "content": "タイマー  残り0秒[max]{args}[0][value]0[id]timer"
+                },
+                {
+                    "id": 101,
+                    "content": "[タイマー] 終了です"
+                },
+                {
+                    "id": 136,
+                    "content": "countdown_{player_name}"
+                },
+                {
+                    "id": 144,
+                    "content": "5[name]removeTimerBar"
+                }
+            ],
+            "type": 3,
+            "options": []
+        },
+        "removeTimerBar": {
+            "if": [],
+            "match": [
+                {
+                    "id": 156,
+                    "content": "timer"
+                }
+            ],
+            "else": [],
+            "type": 3,
+            "options": []
+        }
+    }
+}
